@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Amor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #ffe6f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .menu-icon {
+      position: fixed;
+      left: 20px;
+      top: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #ff99cc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 20;
+      box-shadow: 0 0 10px #ff69b4;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .menu-icon i {
+      font-size: 24px;
+      color: white;
+    }
+
+    .menu-options {
+      position: fixed;
+      left: 80px;
+      top: 20px;
+      transform: translateX(-200%);
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: #fff0f5;
+      padding: 14px 22px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      z-index: 10;
+    }
+
+    .menu-options.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .menu-options button {
+      background: #ffffff;
+      color: #ff66a5;
+      border: 2px solid #ffb6c1;
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-family: 'Comic Sans MS', cursive;
+      transition: all 0.3s ease;
+    }
+
+    .menu-options button:hover {
+      background: #ffe0ec;
+      transform: scale(1.05);
+    }
+
+    .text-container {
+      background-color: #fff0f6;
+      border: 3px dashed #ff8acb;
+      border-radius: 20px;
+      padding: 20px 30px;
+      max-width: 80%;
+      font-size: 1.4rem;
+      color: #ff3e9e;
+      box-shadow: 0 4px 8px rgba(255, 153, 204, 0.4);
+      margin-bottom: 30px;
+      margin-top: 100px;
+    }
+
+    .kitty-image {
+      width: 200px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(255, 128, 170, 0.3);
+    }
+
+    @media (max-width: 480px) {
+      .menu-options {
+        top: 80px;
+        left: 20px;
+        width: calc(100% - 40px);
+      }
+
+      .menu-options button {
+        font-size: 0.95rem;
+        padding: 10px;
+      }
+
+      .menu-icon {
+        width: 45px;
+        height: 45px;
+      }
+
+      .menu-icon i {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu-icon" id="menuToggle">
+    <i class="fas fa-heart"></i>
+  </div>
+
+  <div class="menu-options" id="menuOptions">
+    <button onclick="location.href='recuerdos.html'"><i class="fas fa-camera-retro"></i>Recuerdos</button>
+    <button onclick="location.href='experi.html'"><i class="fas fa-star"></i>Experiencias</button>
+    <button onclick="location.href='mi_amor.html'"><i class="fas fa-heartbeat"></i>Mi amor por vos</button>
+    <button onclick="location.href='index.html'"><i class="fas fa-home"></i>Inicio</button>
+  </div>
+
+  <div class="text-container">
+    Mi amor, sos la razon por que cual me siento feliz cada dia y me siento siempre feliz al estar a tu lado<br>
+    Esa hermosa sonrisa que tenes todos los dias al verme, esa hermosa sonrisa que me sonrie con cara de emocion<br>
+    es una de las cosas que mas amo de vos zoe.<br>
+    Una persona que me conoce tan bien y conoce cada minima parte de mi aun que este lastimada o simplemente sin ganas de hablar<br>
+    Mi lado hermoso, mi lado tierno, mi lado insoportable, mi lado jediento, mi lado empalagoso y hasta mi lado mas hermoso<br>
+    Lo conociste VOS y nadie mas y nadie mas. Te amo muchisimo amor mio y espero que esta web te haya gustado
+    Te amo una banda amor mio:<br>
+    Att: tomi :3
+  </div>
+
+  <img src="https://i.pinimg.com/originals/13/5e/ff/135effd00958277557952639938a478f.gif" class="kitty-image" alt="Hello Kitty Amor">
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menuOptions = document.getElementById('menuOptions');
+
+    menuToggle.addEventListener('click', () => {
+      menuOptions.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

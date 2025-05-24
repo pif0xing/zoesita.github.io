@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recuerdos</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cherry+Swash&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Cherry Swash', cursive;
+      margin: 0;
+      padding: 0;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #ff99cc;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px #ff69b4;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.3s ease;
+      z-index: 20;
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+    }
+    .back-button:hover {
+      transform: scale(1.1);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      padding: 100px 20px 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .heart-icon {
+      font-size: 20px;
+      color: #d3d3d3;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .heart-icon.liked {
+      color: #ff69b4;
+    }
+
+    .photo-card {
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+      border: 2px dashed #ffb6c1;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: auto;
+      border-bottom: 2px solid #ffe4e1;
+      cursor: pointer; /* Indica que se puede clicar */
+      transition: transform 0.3s ease;
+    }
+
+    .photo-card img:hover {
+      transform: scale(1.05);
+    }
+
+    .description {
+      padding: 15px;
+      font-size: 1rem;
+      color: #ff69b4;
+    }
+
+    .menu-options {
+      position: fixed;
+      left: 80px;
+      top: 20px;
+      transform: translateX(-200%);
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: #fff0f5;
+      padding: 14px 22px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      z-index: 10;
+    }
+
+    .menu-options.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .menu-options button {
+      background: #ffffff;
+      color: #ff66a5;
+      border: 2px solid #ffb6c1;
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-family: 'Comic Sans MS', cursive;
+      transition: all 0.3s ease;
+    }
+
+    .menu-options button:hover {
+      background: #ffe0ec;
+      transform: scale(1.05);
+    }
+
+    /* Modal estilos */
+    #modal {
+      display: none; /* oculto por defecto */
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #ff69b4;
+    }
+
+    #modal.close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        padding-top: 80px;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .menu-options {
+        top: 80px;
+        left: 20px;
+        width: calc(100% - 40px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="back-button" id="menuToggle" title="Volver">
+    <i class="fas fa-heart"></i>
+  </button>
+
+  <div class="menu-options" id="menuOptions">
+    <button onclick="location.href='recuerdos.html'"><i class="fas fa-camera-retro"></i>Recuerdos</button>
+    <button onclick="location.href='experi.html'"><i class="fas fa-star"></i>Experiencias</button>
+    <button onclick="location.href='mi_amor.html'"><i class="fas fa-heartbeat"></i>Mi amor por vos</button>
+    <button onclick="location.href='index.html'"><i class="fas fa-home"></i>Inicio</button>
+  </div>
+
+  <div class="grid">
+    <div class="photo-card">
+      <img src="./img/florcita.jpg" alt="Recuerdo 1" class="zoomable">
+      <div class="description">
+        Esa flor que te regale hoy 23/5/25 donde me dijiste " hay que linda flor " y yo fui y la arranque de una del arbol y te la di y me dijiste "hayy, espera le saco una foto" y le sacaste una foto astetic que fue este hermoso recuerdo, que jamas lo olvidare amor mio
+        <i class="fas fa-heart heart-icon" onclick="toggleHeart(this)"></i>
+      </div>
+    </div>
+    <div class="photo-card">
+      <img src="./img/llamada_de_inseguridades.jpg" alt="Recuerdo 2" class="zoomable">
+      <div class="description">
+        En estas dos horas el 20/5/25 fue una de las llamadas mas fuertes y una de las llamadas donde aclaramos todo. Inseguridades, como ibamos a resolver los prolemas en la relacion, desconfianza, aclaracion d lo nuestro
+        como soy (resolviendo prolemas ect), como resuelvo las cosas, cartas y detalles. Hablamos sobre esos temas y para los dos, fue dificil entendernos pero pudimos, pudimos resolver todo eso y pudimos hablar bien sobre las cosas que nos molestaban o
+        que nos hacian sentir inseguros mutuamente y yo aclare absolutamente todo tanto como soy ect
+        <i class="fas fa-heart heart-icon" onclick="toggleHeart(this)"></i>
+      </div>
+    </div>
+    <div class="photo-card">
+      <img src="img/novios_18_3_25.jpg" alt="Recuerdo 3" class="zoomable">
+      <div class="description">
+        Cuando nos hicimos novios por primera vez, el dia 18/3/25 a las 11:54 de la noche nos hicimos novios por primera vez, lo recuerdo como si fuera ayer, lo tan emocionado que estaba por esperar ese si. Aun que no lo creas, yo sabia que ibas a decir que si por que 
+        te re gustaba y te sigo gustando osea ash ash ash
+        <i class="fas fa-heart heart-icon" onclick="toggleHeart(this)"></i>
+      </div>
+    </div>
+    <div class="photo-card">
+      <img src="img/llamada extra larga.jpg" alt="Recuerdo 4" class="zoomable">
+      <div class="description">
+        Esa llamada que duro apenas 1 hora, pero fue la mejor hora de mi vida
+        <i class="fas fa-heart heart-icon" onclick="toggleHeart(this)"></i>
+      </div>
+    </div>
+    <div class="photo-card">
+      <img src="./img/fecha.jpg" alt="Recuerdo 5" class="zoomable">
+      <div class="description">
+        17/5/25 La fecha donde nos hicimos novios por segunda vez y por ultima vez. Si, Nos prometimos volver una vez mas y intentarlo una vez mas, el sabado 17/5/25 a las 2:31 me escribiste un texto donde me escribias lo que sentias y seguis sintiendo por mi aun que nos hayamos "ido" vos me seguias amando y yo la verdad es que si, yo te seguia amando en ese entonces
+        y te sigo amando aun que el pasado se tiene que dejar morir y vivir el presente, siempre estare aqui pase lo que pase y no quiero irme otra vez de tu vida por cosas que yo hice o cosa que vos hiciste
+        <i class="fas fa-heart heart-icon" onclick="toggleHeart(this)"></i>
+      </div>
+    </div>
+    <div class="photo-card">
+      <img src="./img/recuerdo2_le_guste.jpg" alt="Recuerdo 6" class="zoomable">
+      <div class="description">
+        Esa fecha me acuerdo patente jakdjsa. 15/3/25. Fue la fecha donde te pregunte si de verdad te gustaba muy sutilmente y me sigo acordando tu "msi es verdad", te juro esa noche a las 2:25 a.m me senti re feliz y a las 2:35 a.m me hable con joaqo y le dije "GOL GOL, JAJAJA" y le mostre la captura donde vos me decias que yo te gustaba y el me dijo "Tenes que cerrar el estadio" y mi respuesta fue "Ysi"
+        y lo cerre, pidiendote ser mi novia y no me arrepiento nada de a verlo cerrado,
+        <i class="fas fa-heart heart-icon" onclick="toggleHeart(this)"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para imagen -->
+  <div id="modal">
+    <span id="modalClose" title="Cerrar">&times;</span>
+    <img id="modalImg" src="" alt="Imagen ampliada" />
+  </div>
+
+  <script>
+    function toggleHeart(icon) {
+      icon.classList.toggle('liked');
+    }
+
+    const menuToggle = document.getElementById('menuToggle');
+    const menuOptions = document.getElementById('menuOptions');
+
+    menuToggle.addEventListener('click', () => {
+      menuOptions.classList.toggle('show');
+    });
+
+    // Modal para imagen grande
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const modalClose = document.getElementById('modalClose');
+
+    // Agregamos evento a todas las imágenes con clase 'zoomable'
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+        modalImg.alt = img.alt || "Imagen ampliada";
+      });
+    });
+
+    // Cerrar modal al hacer clic en la X
+    modalClose.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    // Cerrar modal al hacer clic fuera de la imagen
+    modal.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+  </script>
+</body>
+</html>

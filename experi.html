@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiencias</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cherry+Swash&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Cherry Swash', cursive;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #ff69b5;
+    }
+
+    .experience-container {
+      max-width: 800px;
+      margin: 120px auto 40px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .experience-card {
+      background: #fff;
+      border-radius: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 25px;
+      border: 3px dashed #ffb6c1;
+      max-width: 100%;
+    }
+
+    .experience-card img {
+      max-width: 100%;
+      border-radius: 20px;
+      border: 2px solid #ffe4e1;
+    }
+
+    .experience-text {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      color: #ff66a5;
+    }
+
+    @media (max-width: 600px) {
+      .experience-card {
+        padding: 15px;
+      }
+
+      .experience-text {
+        font-size: 1rem;
+      }
+    }
+        .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #ff99cc;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px #ff69b4;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.3s ease;
+      z-index: 20;
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+    }
+        .menu-options {
+      position: fixed;
+      left: 80px;
+      top: 20px;
+      transform: translateX(-200%);
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: #fff0f5;
+      padding: 14px 22px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      z-index: 10;
+    }
+    .menu-options.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .menu-options button {
+      background: #ffffff;
+      color: #ff66a5;
+      border: 2px solid #ffb6c1;
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-family: 'Comic Sans MS', cursive;
+      transition: all 0.3s ease;
+    }
+    .menu-options button:hover {
+      background: #ffe0ec;
+      transform: scale(1.05);
+    }
+    @media (max-width: 600px) {
+      .grid {
+        padding-top: 80px;
+        gap: 20px;
+      }
+    }
+    @media (max-width: 480px) {
+      .menu-options {
+        top: 80px;
+        left: 20px;
+        width: calc(100% - 40px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="back-button" id="menuToggle" title="Volver">
+    <i class="fas fa-heart"></i>
+  </button>
+
+  <div class="menu-options" id="menuOptions">
+    <button onclick="location.href='recuerdos.html'"><i class="fas fa-camera-retro"></i>Recuerdos</button>
+    <button onclick="location.href='experi.html'"><i class="fas fa-star"></i>Experiencias</button>
+    <button onclick="location.href='mi_amor.html'"><i class="fas fa-heartbeat"></i>Mi amor por vos</button>
+    <button onclick="location.href='index.html'"><i class="fas fa-home"></i>Inicio</button>
+  </div>
+
+  <div class="experience-container">
+    <div class="experience-card">
+      <img src="img/fecha.jpg" alt="Experiencia 1">
+      <div class="experience-text">Ese dia 17/5/25 Dia sabado, que volvimos y nos prometimos que nunca mas nos ibamos a lastimar, donde nos prometimos mutuamente que ibamos a ser felices uno al otro.</div>
+    </div>
+    
+    <div class="experience-card">
+      <img src="img/recuerdo1_ella.jpg" alt="Experiencia 2">
+      <div class="experience-text">Conocerte. Si, conocerte fue una de las mejores decisiones y una de las mejores cosas y experiencias que las volveria a repetir una y otra vez sin cansarme de vos. Jamas me voy a cansar de repetir esos dias intensos que siempre tenemos y esos hermosos dias</div>
+    </div>
+
+    <div class="experience-card">
+      <img src="img/conocerte_a_profundo2.jpg" alt="Experiencia 3">
+      <div class="experience-text">Conocerte a profundo, Si. Concoerte a profundo es una de las cosas que me contaron entender, me costo mucho entenderte ya que nunca creí que ibas a hacer una persona tan hermosa y tan amable conmigo, me costo mucho entenderte ya que pues entender tus vibes, entender como eras, entender ¿ Por que te lastimaron tanto ? y me costo entender por que te lastimaron tanto si sos una persona tan hermosa de corazon  y entendi que no eras vos, si no las persoans que conociste alolargo de tu vida. Una Experiencia que siempre la repeteria una y otra vez</div>
+    </div>
+    </div>
+  </div>
+ <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menuOptions = document.getElementById('menuOptions');
+
+    menuToggle.addEventListener('click', () => {
+      menuOptions.classList.toggle('show');
+    });
+ </script>
+</body>
+</html>
